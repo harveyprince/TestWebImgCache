@@ -8,11 +8,12 @@ import android.webkit.WebSettings.LayoutAlgorithm;
 
 import com.example.testwebimgcache.util.HtmlParser;
 import com.example.testwebimgcache.util.Js2JavaInterface;
+import com.example.testwebimgcache.util.TWebView;
 import com.example.testwebimgcache.util.TWebViewClient;
 
 public class MainActivity extends Activity {
 	
-	private WebView webView;
+	private TWebView webView;
 
 
 	@Override
@@ -24,6 +25,8 @@ public class MainActivity extends Activity {
 
 		webView.setWebViewClient(new TWebViewClient(this, webView));
 
+		webView.loadData("test<br><img src=\"http://7xpc6y.com1.z0.glb.clouddn.com/_paper_image_2_1451641694639.jpg\" alt=\"uploaded_image\"><br>test");
+
 	}
 
 	@Override
@@ -34,7 +37,7 @@ public class MainActivity extends Activity {
 	}
 	
 	private void setupWebView(){
-		webView = (WebView)findViewById(R.id.webview);
+		webView = (TWebView)findViewById(R.id.webview);
 		webView.addJavascriptInterface(new Js2JavaInterface(MainActivity.this),
 				HtmlParser.Js2JavaInterfaceName);
 		

@@ -15,13 +15,16 @@ import java.util.List;
 public class TWebViewClient extends WebViewClient {
 
     WebView webView;
-
+    Context context;
     CnbetaHtmlParser parser;
 
     public TWebViewClient(Context context, WebView webView){
         this.webView = webView;
-        parser = new CnbetaHtmlParser(webView, "test<br><img src=\"http://7xpc6y.com1.z0.glb.clouddn.com/_paper_image_2_1451641694639.jpg\" alt=\"uploaded_image\"><br>test", context);
+        this.context = context;
+    }
 
+    public void setData(String data){
+        parser = new CnbetaHtmlParser(webView, data, context);
         parser.execute((Void)null);
     }
 
