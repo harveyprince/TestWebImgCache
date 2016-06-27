@@ -1,5 +1,31 @@
 [
     {
+        "outputFile": "/Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/build/intermediates/res/merged/debug/values-v11/values-v11.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 4,
+                    "endColumn": 12,
+                    "endOffset": 187
+                },
+                "from": {
+                    "file": "/Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/src/main/res/values-v11/styles.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 182,
+                        "endLine": 8,
+                        "endColumn": 12,
+                        "endOffset": 316
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "/home/harveyprince/AndroidStudioProjects/coterie/Coteriax/TestWebImgCache/app/build/intermediates/res/merged/debug/values-v11/values-v11.xml",
         "map": [
             {
