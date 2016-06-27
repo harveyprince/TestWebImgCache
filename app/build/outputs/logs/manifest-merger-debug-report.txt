@@ -25,6 +25,8 @@ ADDED from /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCach
 		ADDED from /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/src/main/AndroidManifest.xml:8:22-78
 uses-sdk
 ADDED from /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/src/main/AndroidManifest.xml:10:5-12:41
+MERGED from [com.android.support:support-v4:23.0.0] /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/AndroidManifest.xml:20:5-43
+MERGED from [com.jakewharton:butterknife:8.1.0] /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.1.0/AndroidManifest.xml:5:5-43
 	android:targetSdkVersion
 		ADDED from /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/src/main/AndroidManifest.xml:12:9-38
 		INJECTED from /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/src/main/AndroidManifest.xml
@@ -35,6 +37,7 @@ ADDED from /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCach
 		INJECTED from /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/src/main/AndroidManifest.xml
 application
 ADDED from /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/src/main/AndroidManifest.xml:14:5-32:19
+MERGED from [com.android.support:support-v4:23.0.0] /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from /Users/harveyprince/Documents/android_studio_workspace/TestWebImgCache/app/src/main/AndroidManifest.xml:17:9-41
 	android:allowBackup

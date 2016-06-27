@@ -39,5 +39,9 @@ public class TWebViewClient extends WebViewClient {
 
         downloadTask.execute(urlStrArray);
 
+        doSomething();
+
     }
+
+    public void doSomething(){}
 }
