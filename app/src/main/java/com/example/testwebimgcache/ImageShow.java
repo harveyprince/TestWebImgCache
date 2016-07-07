@@ -38,7 +38,7 @@ public class ImageShow extends Activity {
 
 			@Override
 			protected Drawable doInBackground(Void... params) {
-				InputStream is = null;
+				/*InputStream is = null;
 				try {
 					URL iUrl = new URL(url);
 					is = iUrl.openStream();
@@ -56,14 +56,14 @@ public class ImageShow extends Activity {
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-				/*String urlStr = url;
+				}*/
+				String urlStr = url;
 				int index = urlStr.lastIndexOf("/");
 				String fileName = urlStr.substring(index + 1, urlStr.length());
 				String path = Environment.getExternalStorageDirectory() + "/test/" + fileName;
 				Drawable bitmap = null;
 
-				bitmap = Drawable.createFromPath(path);*/
+				bitmap = Drawable.createFromPath(path);
 
 				return bitmap;
 			}

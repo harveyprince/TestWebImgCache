@@ -5,11 +5,11 @@ import org.jsoup.nodes.Document;
 import android.content.Context;
 import android.webkit.WebView;
 
-public class CnbetaHtmlParser extends HtmlParser {
+public class MyHtmlParser extends HtmlParser {
 
 
-	public CnbetaHtmlParser(WebView webView, String url,
-			Context context) {
+	public MyHtmlParser(WebView webView, String url,
+						Context context) {
 		super(webView, url, context);
 		// TODO Auto-generated constructor stub
 	}

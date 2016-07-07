@@ -4,9 +4,6 @@ import android.content.Context;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.example.testwebimgcache.util.CnbetaHtmlParser;
-import com.example.testwebimgcache.util.DownloadWebImgTask;
-
 import java.util.List;
 
 /**
@@ -16,7 +13,7 @@ public class TWebViewClient extends WebViewClient {
 
     WebView webView;
     Context context;
-    CnbetaHtmlParser parser;
+    MyHtmlParser parser;
 
     public TWebViewClient(Context context, WebView webView){
         this.webView = webView;
@@ -24,7 +21,7 @@ public class TWebViewClient extends WebViewClient {
     }
 
     public void setData(String data){
-        parser = new CnbetaHtmlParser(webView, data, context);
+        parser = new MyHtmlParser(webView, data, context);
         parser.execute((Void)null);
     }
 
