@@ -1,5 +1,8 @@
 package com.example.testwebimgcache;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -11,6 +14,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.widget.ImageView;
 
 public class ImageShow extends Activity {
@@ -53,6 +57,14 @@ public class ImageShow extends Activity {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				/*String urlStr = url;
+				int index = urlStr.lastIndexOf("/");
+				String fileName = urlStr.substring(index + 1, urlStr.length());
+				String path = Environment.getExternalStorageDirectory() + "/test/" + fileName;
+				Drawable bitmap = null;
+
+				bitmap = Drawable.createFromPath(path);*/
+
 				return bitmap;
 			}
 

@@ -14,6 +14,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 /**
  * Created by harveyprince on 16/6/27.
  */
@@ -57,10 +62,8 @@ public class DownloadWebImgTask extends AsyncTask<String, String, Void> {
 
     @Override
     protected Void doInBackground(String... params) {
-        URL url = null;
-        InputStream inputStream = null;
-        OutputStream outputStream = null;
-        HttpURLConnection urlCon =  null;
+
+        OkHttpClient httpClient = new OkHttpClient();
 
         if(params.length == 0)
             return null;
@@ -71,72 +74,55 @@ public class DownloadWebImgTask extends AsyncTask<String, String, Void> {
         }
 
         for(String urlStr : params){
-
-            try {
-
                 if(urlStr == null){
                     break;
                 }
+            File tempFile = new File(urlStr);
+            int index = urlStr.lastIndexOf("/");
+            String fileName = urlStr.substring(index + 1, urlStr.length());
+            Log.i(TAG, "file name : " + fileName + " , tempFile name : " + tempFile.getName());
+            Log.i(TAG, " url : " + urlStr);
 
-                File tempFile = new File(urlStr);
-                int index = urlStr.lastIndexOf("/");
-                String fileName = urlStr.substring(index + 1, urlStr.length());
-                Log.i(TAG, "file name : " + fileName + " , tempFile name : " + tempFile.getName());
-                Log.i(TAG, " url : " + urlStr);
+            File file = new File(Environment.getExternalStorageDirectory() + "/test/" + fileName);
 
-                File file = new File(Environment.getExternalStorageDirectory() + "/test/" + fileName);
-
-                if(file.exists()){
-                    continue;
-                }
-
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                url = new URL(urlStr);
-                urlCon = (HttpURLConnection)url.openConnection();
-                urlCon.setRequestMethod("GET");
-                urlCon.setDoInput(true);
-                urlCon.connect();
-
-                inputStream = urlCon.getInputStream();
-                outputStream = new FileOutputStream(file);
-                byte buffer[]=new byte[1024];
-                int bufferLength = 0;
-                while((bufferLength = inputStream.read(buffer)) > 0){
-                    outputStream.write(buffer, 0, bufferLength);
-                }
-                outputStream.flush();
-                publishProgress(urlStr);
-            } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }finally{
-
-                try {
-                    if(inputStream != null){
-                        inputStream.close();
-                    }
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-                try {
-                    if(outputStream != null){
-                        outputStream.close();
-                    }
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
+            if(file.exists()){
+                continue;
             }
+
+            Call call = httpClient.newCall(new Request.Builder().url(urlStr).get().build());
+
+            try{
+                Response response = call.execute();
+                if (response.code() == 200) {
+                    InputStream inputStream = null;
+                    OutputStream outputStream = null;
+                    try {
+                        inputStream = response.body().byteStream();
+
+                        outputStream = new FileOutputStream(file);
+                        byte buffer[]=new byte[1024*4];
+                        int bufferLength = 0;
+                        while((bufferLength = inputStream.read(buffer)) > 0){
+                            outputStream.write(buffer, 0, bufferLength);
+                        }
+                        outputStream.flush();
+                        publishProgress(urlStr);
+                    } catch (IOException ignore) {
+
+                    } finally {
+                        if (inputStream != null) {
+                            inputStream.close();
+                        }
+                    }
+                } else {
+
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
 
         }
 

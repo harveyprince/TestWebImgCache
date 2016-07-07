@@ -25,4 +25,5 @@ dependencies {
     compile files('libs/jsoup-1.7.1.jar')
     compile 'com.jakewharton:butterknife:8.1.0'
     apt 'com.jakewharton:butterknife-compiler:8.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
 }
